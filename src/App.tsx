@@ -4,11 +4,43 @@ import interpreterLogo from "./assets/interpreter.png";
 import openstackLogo from "./assets/openstack_logo.png";
 import "./App.css";
 import ImageTextBlock from "./components/ImageTextBlock";
+import { useIntersectionObserver } from "./hooks/useIntersectionObserver";
 
 function App() {
+  const { ref: introRef, isIntersecting: introVisible } =
+    useIntersectionObserver({
+      threshold: 0.1,
+      triggerOnce: true,
+    });
+
+  const { ref: bioRef, isIntersecting: bioVisible } =
+    useIntersectionObserver({
+      threshold: 0.1,
+      triggerOnce: true,
+    });
+
+  const { ref: projectsRef, isIntersecting: projectsVisible } =
+    useIntersectionObserver({
+      threshold: 0.1,
+      triggerOnce: true,
+    });
+
+  const { ref: aboutRef, isIntersecting: aboutVisible } =
+    useIntersectionObserver({
+      threshold: 0.1,
+      triggerOnce: true,
+    });
+
   return (
     <>
-      <div className="relative max-w-4xl mx-auto p-6 rounded-4xl overflow-hidden">
+      <div 
+        ref={introRef}
+        className={`relative max-w-4xl mx-auto p-6 rounded-4xl overflow-hidden transition-all duration-1000 ease-out ${
+          introVisible
+            ? "translate-y-0 opacity-100"
+            : "translate-y-8 opacity-0"
+        }`}
+      >
         <div className="absolute inset-0 bg-black opacity-75 z-0 rounded-4xl"></div>
         <h1 className="relative text-1xl font-bold mb-8 text-center text-white">
           A Lifetime of Tech Experience
@@ -17,7 +49,14 @@ function App() {
       {Array.from({ length: 10 }, () => (
         <br />
       ))}
-      <div className="relative max-w-4xl mx-auto p-6 rounded-4xl overflow-hidden">
+      <div 
+        ref={bioRef}
+        className={`relative max-w-4xl mx-auto p-6 rounded-4xl overflow-hidden transition-all duration-1000 ease-out ${
+          bioVisible
+            ? "translate-x-0 opacity-100"
+            : "-translate-x-8 opacity-0"
+        }`}
+      >
         <div className="absolute inset-0 bg-black opacity-75 z-0 rounded-4xl"></div>
         <ImageTextBlock
           title="Words About Things I've Built"
@@ -29,7 +68,14 @@ function App() {
       </div>
       <br />
       <br />
-      <div className="relative rounded-4xl max-w-4xl mx-auto p-6">
+      <div
+        ref={projectsRef}
+        className={`relative rounded-4xl max-w-4xl mx-auto p-6 transition-all duration-1000 ease-out ${
+          projectsVisible
+            ? "translate-x-0 opacity-100"
+            : "translate-x-full opacity-0"
+        }`}
+      >
         <div className="absolute inset-0 bg-black opacity-75 z-0 rounded-4xl"></div>
         <h2 className="relative text-4xl font-bold mb-8 text-center text-white">
           Projects
@@ -42,6 +88,7 @@ function App() {
           link="https://github.com/v1nsai/homelab"
           text="My Kubernetes powered home network that I share with some friends and family. It started out as wanting to practice Kubernetes and has turned into a (nearly) production-ready environment. It is deployed using flux CD gitops and includes a full logging, monitoring and alerting stack that emails me when issues come up, distributed Ceph based storage, high availability, loadbalancing, Nvidia GPU passthrough, reverse proxying through Cloudflare for public endpoints and several apps."
         />
+        <br />
         <ImageTextBlock
           title="OpenStack Deploy Tools"
           imageSrc={openstackLogo}
@@ -50,6 +97,7 @@ function App() {
           link="https://github.com/v1nsai/deploy-tools"
           text="Terraform code and scripts to automate my personal project deployments to any OpenStack powered cloud provider. I ran some of my homelab projects in an OpenStack provider before switching over to fully self-hosting."
         />
+        <br />
         <ImageTextBlock
           title="Telegram Interpreter Bot"
           imageSrc={interpreterLogo}
@@ -61,7 +109,14 @@ function App() {
       </div>
       <br />
       <br />
-      <div className="relative rounded-4xl max-w-4xl mx-auto p-6">
+      <div 
+        ref={aboutRef}
+        className={`relative rounded-4xl max-w-4xl mx-auto p-6 transition-all duration-1000 ease-out ${
+          aboutVisible
+            ? "translate-x-0 opacity-100"
+            : "translate-x-8 opacity-0"
+        }`}
+      >
         <div className="absolute inset-0 bg-black opacity-75 z-0 rounded-4xl"></div>
         <h2 className="relative text-4xl font-bold mb-8 text-center text-white">
           About Me
@@ -78,7 +133,8 @@ function App() {
       <div className="relative max-w-4xl mx-auto p-6">
         <div className="absolute inset-0 z-0"></div>
         <p className="relative text-white text-xs">
-          © 2025 Drew's Personal Site, all pixels locally sourced and cruelty-free.
+          © 2025 Drew's Personal Site, all pixels locally sourced and
+          cruelty-free.
         </p>
       </div>
     </>
