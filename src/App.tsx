@@ -74,6 +74,13 @@ function App() {
           not very good at it.
         </p>
       </div>
+      {/* Small text at the bottom of the page */}
+      <div className="relative max-w-4xl mx-auto p-6">
+        <div className="absolute inset-0 z-0"></div>
+        <p className="relative text-white text-xs">
+          © 2025 Drew's Personal Site, all pixels locally sourced and cruelty-free.
+        </p>
+      </div>
     </>
   );
 }
