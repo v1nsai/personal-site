@@ -1,5 +1,4 @@
 import personalPhoto from './assets/personal-photo.png'
-import backgroundImage from './assets/background-small.png'
 import homelabImage from './assets/homelab.png'
 import interpreterLogo from './assets/interpreter.png'
 import openstackLogo from './assets/openstack_logo.png'
