@@ -1,17 +1,22 @@
-import personalPhoto from './assets/personal-photo.png'
-import homelabImage from './assets/homelab.png'
-import interpreterLogo from './assets/interpreter.png'
-import openstackLogo from './assets/openstack_logo.png'
-import './App.css'
-import ImageTextBlock from './components/ImageTextBlock'
+import personalPhoto from "./assets/personal-photo.png";
+import homelabImage from "./assets/homelab.png";
+import interpreterLogo from "./assets/interpreter.png";
+import openstackLogo from "./assets/openstack_logo.png";
+import "./App.css";
+import ImageTextBlock from "./components/ImageTextBlock";
 
 function App() {
   return (
     <>
-      <h1>A Lifetime of Tech Experience</h1>
-      <br />
-      <br />
-      <br />
+      <div className="relative max-w-4xl mx-auto p-6">
+        <div className="absolute inset-0 bg-black opacity-75 z-0"></div>
+        <h1 className="relative text-1xl font-bold mb-8 text-center text-white">
+          A Lifetime of Tech Experience
+        </h1>
+      </div>
+      {Array.from({ length: 10 }, () => (
+        <br />
+      ))}
       <ImageTextBlock
         title="Words About Things I've Built"
         imageSrc={personalPhoto}
@@ -21,7 +26,12 @@ function App() {
       />
       <br />
       <br />
-      <h1>Projects</h1>
+      <div className="relative">
+        <div className="absolute inset-0 bg-black opacity-75 z-0"></div>
+        <h2 className="relative text-4xl font-bold mb-8 text-center text-white">
+          Projects
+        </h2>
+      </div>
       <ImageTextBlock
         title="Kubernetes Homelab"
         imageSrc={homelabImage}
@@ -48,10 +58,24 @@ function App() {
       />
       <br />
       <br />
-      <h1>About Me</h1>
-      <p>Besides computer languages, I’m also a people languages enthusiast. I speak (Mexican) Spanish conversationally, which I use to get into confusing conversations with Hondurans and Salvadoreans here in DC. I play guitar and bass, and my wife and I love dancing even though we’re not very good at it.</p>
+      <div className="relative">
+        <div className="absolute inset-0 bg-black opacity-75 z-0"></div>
+        <h2 className="relative text-4xl font-bold mb-8 text-center text-white">
+          About Me
+        </h2>
+      </div>
+      <div className="relative max-w-4xl mx-auto p-6 rounded-xl overflow-hidden">
+        <div className="absolute inset-0 bg-black opacity-75 z-0"></div>
+        <p className="relative text-white text-lg">
+          Besides computer languages, I’m also a people languages enthusiast. I
+          speak (Mexican) Spanish conversationally, which I use to get into
+          confusing conversations with Hondurans and Salvadoreans here in DC. I
+          play guitar and bass, and my wife and I love dancing even though we’re
+          not very good at it.
+        </p>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
