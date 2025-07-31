@@ -28,21 +28,20 @@ const ImageTextBlock = ({
   );
 
   return (
-    <div className="relative max-w-4xl mx-auto p-6">
-      <div className="absolute inset-0 bg-black opacity-75 z-0"></div>
-      <h3 className="relative text-2xl font-bold mb-8 text-center text-white">
+    <>
+      <h3 className={`relative text-2xl font-bold mb-8 text-white ${isImageLeft ? 'text-right' : 'text-left'}`}>
         {title}
       </h3>
-      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         {isImageLeft && imageElement}
 
         <div>
-          <p className="text-lg text-white whitespace-pre-line">{text}</p>
+          <p className={`text-lg text-white whitespace-pre-line ${isImageLeft ? 'text-right' : 'text-left'}`}>{text}</p>
         </div>
 
         {!isImageLeft && imageElement}
       </div>
-    </div>
+    </>
   );
 };
 
