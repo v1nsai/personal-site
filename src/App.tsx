@@ -2,11 +2,18 @@ import personalPhoto from "./assets/personal-photo.png";
 import homelabImage from "./assets/homelab.png";
 import interpreterLogo from "./assets/interpreter.png";
 import openstackLogo from "./assets/openstack_logo.png";
+import backgroundImage from "./assets/background-small.png";
 import "./App.css";
 import ImageTextBlock from "./components/ImageTextBlock";
 import { useIntersectionObserver } from "./hooks/useIntersectionObserver";
+import { useEffect } from "react";
 
 function App() {
+  // Set background image on component mount
+  useEffect(() => {
+    document.body.style.backgroundImage = `url(${backgroundImage})`;
+  }, []);
+
   const { ref: introRef, isIntersecting: introVisible } =
     useIntersectionObserver({
       threshold: 0.1,
