@@ -19,12 +19,6 @@ function App() {
       triggerOnce: true,
     });
 
-  const { ref: projectsRef, isIntersecting: projectsVisible } =
-    useIntersectionObserver({
-      threshold: 0.1,
-      triggerOnce: true,
-    });
-
   const { ref: project1Ref, isIntersecting: project1Visible } =
     useIntersectionObserver({
       threshold: 0.1,
@@ -75,7 +69,7 @@ function App() {
       >
         <div className="absolute inset-0 bg-black opacity-75 z-0 rounded-4xl"></div>
         <ImageTextBlock
-          title="Words About Things I've Built"
+          title="Experience"
           imageSrc={personalPhoto}
           imageAlt="Photo of me and my dog"
           imagePosition="left"
@@ -85,7 +79,6 @@ function App() {
       <br />
       <br />
       <div
-        ref={projectsRef}
         className="relative rounded-4xl max-w-4xl mx-auto p-6"
       >
         <div className="absolute inset-0 bg-black opacity-75 z-0 rounded-4xl"></div>
