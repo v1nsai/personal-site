@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  personal-site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: personal-site
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    networks:
+      - personal-site-network
+
+networks:
+  personal-site-network:
+    driver: bridge
