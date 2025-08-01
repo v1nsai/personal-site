@@ -35,15 +35,6 @@ jobs:
       - name: Build static site
         run: npm run build
 
-      - name: List build output for debugging
-        run: |
-          echo "Contents of dist directory:"
-          ls -la dist/
-          echo "Contents of dist/assets:"
-          ls -la dist/assets/ || echo "No assets directory found"
-          echo "First few lines of index.html:"
-          head -20 dist/index.html
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
