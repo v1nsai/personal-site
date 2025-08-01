@@ -1,0 +1,35 @@
+name: Build and Deploy Docker Image
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-push-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          docker build -t ghcr.io/${{ github.repository }}:latest .
+
+      - name: Push Docker image
+        run: |
+          docker push ghcr.io/${{ github.repository }}:latest
+
+      - name: Trigger Jenkins Deployment
+        run: |
+          curl -X POST "$JENKINS_URL/job/$JENKINS_JOB_NAME/buildWithParameters?token=$JENKINS_TRIGGER_TOKEN&IMAGE=ghcr.io/${{ github.repository }}:latest"
+        env:
+          JENKINS_URL: ${{ secrets.JENKINS_URL }}
+          JENKINS_JOB_NAME: ${{ secrets.JENKINS_JOB_NAME }}
+          JENKINS_TRIGGER_TOKEN: ${{ secrets.JENKINS_TRIGGER_TOKEN }}
