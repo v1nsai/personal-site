@@ -2,6 +2,7 @@ import personalPhoto from "./assets/personal-photo.png";
 import homelabImage from "./assets/homelab.png";
 import interpreterLogo from "./assets/interpreter.png";
 import openstackLogo from "./assets/openstack_logo.png";
+import personalSite from "./assets/personal-site.png";
 import "./App.css";
 import ImageTextBlock from "./components/ImageTextBlock";
 import { useIntersectionObserver } from "./hooks/useIntersectionObserver";
@@ -32,6 +33,12 @@ function App() {
     });
 
   const { ref: project3Ref, isIntersecting: project3Visible } =
+    useIntersectionObserver({
+      threshold: 0.1,
+      triggerOnce: true,
+    });
+
+  const { ref: project4Ref, isIntersecting: project4Visible } =
     useIntersectionObserver({
       threshold: 0.1,
       triggerOnce: true,
@@ -71,9 +78,9 @@ function App() {
         <ImageTextBlock
           title="Experience"
           imageSrc={personalPhoto}
-          imageAlt="Photo of me and my dog"
+          imageAlt="Photo of me"
           imagePosition="left"
-          text={`I’ve been in tech for more than 20 years now, starting as a teenager when a friend’s father gave me a book on Java 3. Since then I’ve been building, repairing, breaking and modding whatever I can get my hands on.\n\nI’ve had the opportunity to get my hands on lots of exciting things in my career. In my 5 years with Homeland Security Investigations as a contractor, I started out doing analytics on small datasets. As the project’s scope grew I moved into a software engineer role, working on several internal apps using Python and Java. As I became more interested in devops specifically, I started working on projects in a data engineer role, designing ingestion pipelines to extract, normalize, apply schemas and load into relational and non-relational databases using NiFi and Groovy.\n\nAfter leaving the federal government I’ve been working at a few different startups. I spent some time at a cryptocurrency finance startup, working in a hybrid role as a data analyst and devops. Then as a full time cloud engineer for a consulting company where I worked directly with stakeholders to extract requirements and create migration plans, deployed and maintained internal services, and designed solutions and infrastructure.`}
+          text={`I’ve been in tech for more than 20 years now, starting as a teenager when a friend’s father gave me a book on Java 3. Since then I’ve been building, repairing, breaking and modding whatever I can get my hands on.\n\nI’ve had the opportunity to get my hands on lots of exciting things in my career. In my 5 years with Homeland Security Investigations as a contractor, I started out doing analytics on small datasets. As the project’s scope grew I moved into a software engineer role, working on several internal apps using Python and Java. As I became more interested in devops specifically, I started working on projects in a data engineer role, designing ingestion pipelines to extract, normalize, apply schemas and load into relational and non-relational databases using NiFi and Groovy.\n\nAfter leaving the federal government I’ve been working at a few different startups. I spent some time at a cryptocurrency finance startup, working in a hybrid role as a data analyst and devops. Then as a full time cloud engineer for a consulting company where I worked directly with stakeholders to extract requirements and create migration plans, deployed and maintained internal services, and designed solutions and infrastructure.\n\nI'm currently working as a senior software engineer at Capital One, where I've worked as a full stack dev on the team that handles file transfers for the whole company. There I've contributed to several projects including efforts to streamline the approval process, modernize the UI and automate more processes. I was responsible for requirements gathering, design, implementation and testing of these projects.`}
         />
       </div>
       <br />
@@ -99,7 +106,7 @@ function App() {
             imageAlt="My homelab setup diagram"
             imagePosition="right"
             link="https://github.com/v1nsai/homelab"
-            text="My Kubernetes powered home network that I share with some friends and family. It started out as wanting to practice Kubernetes and has turned into a (nearly) production-ready environment. It is deployed using flux CD gitops and includes a full logging, monitoring and alerting stack that emails me when issues come up, distributed Ceph based storage, high availability, loadbalancing, Nvidia GPU passthrough, reverse proxying through Cloudflare for public endpoints and several apps."
+            text="My Kubernetes powered home network that I share with some friends and family. It started out as wanting to practice Kubernetes and has turned into a (nearly) production-ready environment. It is deployed using flux CD gitops and includes a full logging, monitoring and alerting stack that emails me when issues come up, distributed Ceph based storage, high availability, loadbalancing, Nvidia GPU passthrough, reverse proxying through Cloudflare for public endpoints and several apps.  The gitops repo is available in the link on the image."
           />
         </div>
         <br />
@@ -112,12 +119,12 @@ function App() {
           }`}
         >
           <ImageTextBlock
-            title="OpenStack Deploy Tools"
-            imageSrc={openstackLogo}
-            imageAlt="OpenStack logo"
+            title="My Personal Site"
+            imageSrc={personalSite}
+            imageAlt="Personal site screenshot"
             imagePosition="left"
             link="https://github.com/v1nsai/deploy-tools"
-            text="Terraform code and scripts to automate my personal project deployments to any OpenStack powered cloud provider. I ran some of my homelab projects in an OpenStack provider before switching over to fully self-hosting."
+            text="I'm not much of a frontend developer, but I'm pretty happy with how this site turned out. It's built with React and Tailwind CSS, and is hosted on my homelab Kubernetes cluster. The source code is available in the link on the image."
           />
         </div>
         <br />
@@ -130,12 +137,30 @@ function App() {
           }`}
         >
           <ImageTextBlock
+            title="OpenStack Deploy Tools"
+            imageSrc={openstackLogo}
+            imageAlt="OpenStack logo"
+            imagePosition="right"
+            link="https://github.com/v1nsai/deploy-tools"
+            text="Terraform code and scripts to automate my personal project deployments to any OpenStack powered cloud provider. I ran some of my homelab projects in an OpenStack provider before switching over to fully self-hosting. This project includes reusable Terraform modules for deploying common services like databases, web servers, and storage solutions, making it easier to set up new projects quickly. The source code is available in the link on the image."
+          />
+        </div>
+        <br />
+        <div
+          ref={project4Ref}
+          className={`transition-all duration-1000 ease-out ${
+            project4Visible
+              ? "translate-x-0 opacity-100"
+              : "translate-x-full opacity-0"
+          }`}
+        >
+          <ImageTextBlock
             title="Telegram Interpreter Bot"
             imageSrc={interpreterLogo}
             imageAlt="Interpreter logo"
-            imagePosition="right"
+            imagePosition="left"
             link="https://github.com/v1nsai/the_interpreter_bot"
-            text="A dockerized interpreter bot on the Telegram network that can be invited into group chats to translate everything the group says to/from English into your target language."
+            text="A dockerized interpreter bot on the Telegram network that can be invited into group chats to translate everything the group says to/from English into your target language. The source code is available in the link on the image."
           />
         </div>
       </div>
