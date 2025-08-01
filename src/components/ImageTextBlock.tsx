@@ -22,7 +22,7 @@ const ImageTextBlock = ({
       <img
         src={imageSrc}
         alt={imageAlt}
-        className="rounded hover:opacity-75"
+        className="rounded hover:shadow-2xl hover:shadow-white/50 transition-shadow duration-300"
       />
     </a>
   );
