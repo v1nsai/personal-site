@@ -1,8 +1,8 @@
 name: Build and Deploy Docker Image
 
 on:
-  push:
-    branches: [ "develop" ]
+  # push:
+  #   branches: [ "develop" ]
   workflow_dispatch:
 
 env:
