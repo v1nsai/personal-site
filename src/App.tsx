@@ -107,7 +107,7 @@ function App() {
           imageAlt="Personal site screenshot"
           imagePosition="left"
           link="https://github.com/v1nsai/deploy-tools"
-          text={`I'm not much of a frontend developer, but I'm pretty happy with how this site turned out. It's built with React and Tailwind CSS, and is hosted on my homelab Kubernetes cluster. The source code is available in the link on the image.`}
+          text={`The code for this website. I've recently been getting more interested in frontend and UI/UX development and built this out to replace the half-baked WordPress site I was using.  It's built using React and Tailwind CSS with Vite. The source code is available in the link on the image.`}
           ref={project2Ref}
           isIntersecting={project2Visible}
           slideStartsFrom="left"
