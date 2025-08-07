@@ -95,7 +95,14 @@ function App() {
           imageAlt="My homelab setup diagram"
           imagePosition="right"
           link="https://github.com/v1nsai/homelab"
-          text={`My Kubernetes powered home network that I share with some friends and family. It started out as wanting to practice Kubernetes and has turned into a (nearly) production-ready environment. It is deployed using flux CD gitops and includes a full logging, monitoring and alerting stack that emails me when issues come up, distributed Ceph based storage, high availability, loadbalancing, Nvidia GPU passthrough, reverse proxying through Cloudflare for public endpoints and several apps.  The gitops repo is available in the link on the image.`}
+          text={
+            <>
+              My Kubernetes powered home network that I share with some friends and family. It started out as wanting to practice Kubernetes and has turned into a (nearly) production-ready environment. It is deployed using flux CD gitops and includes a full logging, monitoring and alerting stack that emails me when issues come up, distributed Ceph based storage, high availability, loadbalancing, Nvidia GPU passthrough, reverse proxying through Cloudflare for public endpoints and several apps.
+              <br />
+              <br />
+              <a href="https://github.com/v1nsai/homelab">View on GitHub</a>
+            </>
+          }
           ref={project1Ref}
           isIntersecting={project1Visible}
           slideStartsFrom="right"
@@ -107,7 +114,14 @@ function App() {
           imageAlt="Personal site screenshot"
           imagePosition="left"
           link="https://github.com/v1nsai/deploy-tools"
-          text={`The code for this website. I've recently been getting more interested in frontend and UI/UX development and built this out to replace the half-baked WordPress site I was using.  It's built using React and Tailwind CSS with Vite. The source code is available in the link on the image.`}
+          text={
+            <>
+              The code for this website. I've recently been getting more interested in frontend and UI/UX development and built this out to replace the half-baked WordPress site I was using.  It's built using React and Tailwind CSS with Vite. The source code is available in the link on the image.
+              <br />
+              <br />
+              <a href="https://github.com/v1nsai/deploy-tools">View on GitHub</a>
+            </>
+          }
           ref={project2Ref}
           isIntersecting={project2Visible}
           slideStartsFrom="left"
@@ -119,7 +133,14 @@ function App() {
           imageAlt="OpenStack logo"
           imagePosition="right"
           link="https://github.com/v1nsai/deploy-tools"
-          text={`Terraform code and scripts to automate my personal project deployments to any OpenStack powered cloud provider. I ran some of my homelab projects in an OpenStack provider before switching over to fully self-hosting. This project includes reusable Terraform modules for deploying common services like databases, web servers, and storage solutions, making it easier to set up new projects quickly. The source code is available in the link on the image.`}
+          text={
+            <>
+              Terraform code and scripts to automate my personal project deployments to any OpenStack powered cloud provider. I ran some of my homelab projects in an OpenStack provider before switching over to fully self-hosting. This project includes reusable Terraform modules for deploying common services like databases, web servers, and storage solutions, making it easier to set up new projects quickly. The source code is available in the link on the image.
+              <br />
+              <br />
+              <a href="https://github.com/v1nsai/deploy-tools">View on GitHub</a>
+            </>
+          }
           ref={project3Ref}
           isIntersecting={project3Visible}
           slideStartsFrom="right"
@@ -131,7 +152,14 @@ function App() {
           imageAlt="Interpreter logo"
           imagePosition="left"
           link="https://github.com/v1nsai/the_interpreter_bot"
-          text={`A dockerized interpreter bot on the Telegram network that can be invited into group chats to translate everything the group says to/from English into your target language. The source code is available in the link on the image.`}
+          text={
+            <>
+              A dockerized interpreter bot on the Telegram network that can be invited into group chats to translate everything the group says to/from English into your target language. The source code is available in the link on the image.
+              <br />
+              <br />
+              <a href="https://github.com/v1nsai/the_interpreter_bot">View on GitHub</a>
+            </>
+          }
           ref={project4Ref}
           isIntersecting={project4Visible}
           slideStartsFrom="left"
