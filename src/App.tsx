@@ -1,12 +1,13 @@
 import personalPhoto from "./assets/personal-photo.png";
 import homelabImage from "./assets/homelab.png";
 import interpreterLogo from "./assets/interpreter.png";
-import openstackLogo from "./assets/openstack_logo.png";
 import personalSite from "./assets/personal-site.png";
 import "./App.css";
 import ImageTextBlock from "./components/ImageTextBlock";
 import { useIntersectionObserver } from "./hooks/useIntersectionObserver";
 import TextBlock from "./components/TextBlock";
+
+const pulseLogo = 'https://github.com/v1nsai/pulse/blob/19f7e38bda351136c3bb83c13f99b9b3db89f358/assets/images/pulse_icon_transparent.png?raw=true';
 
 function App() {
   const { ref: introRef, isIntersecting: introVisible } =
@@ -128,17 +129,19 @@ function App() {
         />
         <br />
         <ImageTextBlock
-          title="OpenStack Deploy Tools"
-          imageSrc={openstackLogo}
-          imageAlt="OpenStack logo"
+          title="Pulse"
+          imageSrc={pulseLogo}
+          imageAlt="Pulse logo"
           imagePosition="right"
-          link="https://github.com/v1nsai/deploy-tools"
+          link="https://github.com/v1nsai/pulse"
           text={
             <>
-              Terraform code and scripts to automate my personal project deployments to any OpenStack powered cloud provider. I ran some of my homelab projects in an OpenStack provider before switching over to fully self-hosting. This project includes reusable Terraform modules for deploying common services like databases, web servers, and storage solutions, making it easier to set up new projects quickly. The source code is available in the link on the image.
+              I wanted to try out React Native, so I’ve been writing a social media app.  All of the existing networks are full of bots and aggressively monetized, I’m experimenting with ways to “verify humanity” when posting.  The frontend uses React Native with Expo and Tailwind CSS, the backend uses Django Rest Framework with MySQL and S3 (currently using minio hosted on my kubernetes lab) for images and video.
               <br />
               <br />
-              <a href="https://github.com/v1nsai/deploy-tools">View on GitHub</a>
+              <a href="https://github.com/v1nsai/pulse">View frontend on GitHub</a>
+              <br />
+              <a href="https://github.com/v1nsai/pulse-api">View backend on GitHub</a>
             </>
           }
           ref={project3Ref}
