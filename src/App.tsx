@@ -129,7 +129,7 @@ function App() {
         />
         <br />
         <ImageTextBlock
-          title="Pulse"
+          title="Pulse: Social Media for Humans"
           imageSrc={pulseLogo}
           imageAlt="Pulse logo"
           imagePosition="right"
