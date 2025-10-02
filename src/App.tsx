@@ -98,7 +98,7 @@ function App() {
           link="https://github.com/v1nsai/homelab"
           text={
             <>
-              My Kubernetes powered home network that I share with some friends and family. It started out as wanting to practice Kubernetes and has turned into a (nearly) production-ready environment. It is deployed using flux CD gitops and includes a full logging, monitoring and alerting stack that emails me when issues come up, distributed Ceph based storage, high availability, loadbalancing, Nvidia GPU passthrough, reverse proxying through Cloudflare for public endpoints and several apps.
+              My Kubernetes powered home network that I share with some friends and family. It started out as wanting to practice Kubernetes and has turned into a (nearly) production-ready environment with services used by around a dozen of my family and friends. It is deployed using flux CD gitops and includes a full logging, monitoring and alerting stack that emails me when issues come up, RAID1 btrfs storage served over NFS, high availability, loadbalancing, Nvidia GPU passthrough, reverse proxying through Cloudflare for public endpoints and several apps.
               <br />
               <br />
               <a href="https://github.com/v1nsai/homelab">View on GitHub</a>
